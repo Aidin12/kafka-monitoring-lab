@@ -1,0 +1,14 @@
+{
+  "name": "Kafka Monitoring Lab",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "docker --version && docker-compose --version",
+  "forwardPorts": [3000, 9090, 9308],
+  "portsAttributes": {
+    "3000": { "label": "Grafana", "onAutoForward": "notify" },
+    "9090": { "label": "Prometheus", "onAutoForward": "notify" },
+    "9308": { "label": "Kafka Exporter", "onAutoForward": "notify" }
+  }
+}
